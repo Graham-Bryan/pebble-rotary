@@ -1,0 +1,36 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "Gryn",
+    "longName": "Rotation",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "characterRegex": "[0-9]",
+                "file": "fonts/4365.ttf",
+                "name": "FONT_74",
+                "type": "font"
+            },
+            {
+                "characterRegex": "[0-9 A-Za-z]",
+                "file": "fonts/4365.ttf",
+                "name": "FONT_18",
+                "type": "font"
+            }
+        ]
+    },
+    "sdkVersion": "3",
+    "shortName": "Rotation",
+    "targetPlatforms": [
+        "aplite",
+        "basalt"
+    ],
+    "uuid": "5522f783-0551-48f6-b588-4c89516f5d5d",
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
