@@ -3,11 +3,23 @@
     "capabilities": [
         ""
     ],
-    "companyName": "Gryn",
-    "longName": "Rotation",
+    "companyName": "Gapp",
+    "longName": "Rotary",
     "projectType": "native",
     "resources": {
         "media": [
+            {
+                "characterRegex": "[0-9 A-Za-z]",
+                "file": "fonts/4637.ttf",
+                "name": "FONT_MINUTE_18",
+                "type": "font"
+            },
+            {
+                "file": "images/rotary_icon.png",
+                "menuIcon": true,
+                "name": "MENU",
+                "type": "png"
+            },
             {
                 "characterRegex": "[0-9]",
                 "file": "fonts/4365.ttf",
@@ -23,7 +35,7 @@
         ]
     },
     "sdkVersion": "3",
-    "shortName": "Rotation",
+    "shortName": "Rotary",
     "targetPlatforms": [
         "aplite",
         "basalt"

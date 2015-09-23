@@ -17,8 +17,9 @@ static PropertyAnimation *s_date_enter_animation;
 static PropertyAnimation *s_date_exit_animation;
 
 #ifdef PBL_COLOR
-static int bg_color_count = 4;
-static GColor bg_colors[4];
+static const int bg_color_count = 15;
+static GColor bg_colors[15];
+static int current_color;
 #endif
 
 static GSize minute_size;
@@ -74,6 +75,7 @@ static void update_time() {
   static char minute_buffer[] = "00";
   static char date_buffer[] = "AAA BBB 00";  
 
+
   if(clock_is_24h_style() == true) {
     strftime(hour_buffer, sizeof("00"), "%H", tick_time);
   } else {
@@ -106,7 +108,8 @@ static void update_time() {
   layer_set_frame((Layer *)s_minute_layer, frame);
 
   #ifdef PBL_COLOR
-    window_set_background_color(s_main_window, bg_colors[(tick_time->tm_hour % bg_color_count)]);
+    current_color = (tick_time->tm_hour % bg_color_count);
+    window_set_background_color(s_main_window, bg_colors[current_color]);
   #else
     window_set_background_color(s_main_window, GColorBlack);
   #endif
@@ -141,7 +144,7 @@ static void main_window_load(Window *window) {
   window_center = grect_center_point (&window_bounds);  
   
   large_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_74));
-  small_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_18));  
+  small_font = fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_MINUTE_18));  
 
   s_hour_layer = text_layer_create(GRect(0,0,100,70));
   text_layer_set_background_color(s_hour_layer, GColorClear);
@@ -177,12 +180,24 @@ static void tap_handler(AccelAxisType axis, int32_t direction) {
 static void init() {
 
   #ifdef PBL_COLOR
+    current_color = 0;
     bg_colors[0] = GColorDarkCandyAppleRed ;
     bg_colors[1] = GColorImperialPurple ;
     bg_colors[2] = GColorDukeBlue ;
     bg_colors[3] =  GColorMidnightGreen ;
+    bg_colors[4] =  GColorOrange ;
+    bg_colors[5] =  GColorRajah ;
+    bg_colors[6] =  GColorBrass ;
+    bg_colors[7] =  GColorGreen ;
+    bg_colors[8] =  GColorVividCerulean ;
+    bg_colors[9] =  GColorTiffanyBlue ;  
+    bg_colors[10] =  GColorElectricUltramarine ;  
+    bg_colors[11] =  GColorPurple ;  
+    bg_colors[12] =  GColorFashionMagenta ;  
+    bg_colors[13] =  GColorJaegerGreen ;  
+    bg_colors[14] =  GColorFolly ;  
   #endif
-
+    
   s_main_window = window_create();
 
   window_set_window_handlers(s_main_window, (WindowHandlers) {
