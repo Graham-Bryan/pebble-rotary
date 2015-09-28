@@ -17,8 +17,8 @@ static PropertyAnimation *s_date_enter_animation;
 static PropertyAnimation *s_date_exit_animation;
 
 #ifdef PBL_COLOR
-static const int bg_color_count = 15;
-static GColor bg_colors[15];
+static const int bg_color_count = 9;
+static GColor bg_colors[9];
 static int current_color;
 #endif
 
@@ -67,7 +67,7 @@ static void show_date()
 }
 
 static void update_time() {
-  
+
   time_t temp = time(NULL);
   struct tm *tick_time = localtime(&temp);
 
@@ -181,22 +181,25 @@ static void init() {
 
   #ifdef PBL_COLOR
     current_color = 0;
-    bg_colors[0] = GColorDarkCandyAppleRed ;
-    bg_colors[1] = GColorImperialPurple ;
+    bg_colors[0] = GColorOrange ;
+    bg_colors[1] = GColorDarkGreen ;
     bg_colors[2] = GColorDukeBlue ;
-    bg_colors[3] =  GColorMidnightGreen ;
-    bg_colors[4] =  GColorOrange ;
-    bg_colors[5] =  GColorRajah ;
-    bg_colors[6] =  GColorBrass ;
-    bg_colors[7] =  GColorGreen ;
-    bg_colors[8] =  GColorVividCerulean ;
-    bg_colors[9] =  GColorTiffanyBlue ;  
-    bg_colors[10] =  GColorElectricUltramarine ;  
-    bg_colors[11] =  GColorPurple ;  
-    bg_colors[12] =  GColorFashionMagenta ;  
-    bg_colors[13] =  GColorJaegerGreen ;  
-    bg_colors[14] =  GColorFolly ;  
+    bg_colors[3] =  GColorDarkCandyAppleRed ;
+    bg_colors[4] =  GColorImperialPurple ;
+    bg_colors[5] =  GColorJaegerGreen ;
+    bg_colors[6] =  GColorOxfordBlue ;
+    bg_colors[7] =  GColorBulgarianRose ;
+    bg_colors[8] =  GColorCobaltBlue  ;
   #endif
+    
+    
+
+
+
+
+
+
+
     
   s_main_window = window_create();
 
